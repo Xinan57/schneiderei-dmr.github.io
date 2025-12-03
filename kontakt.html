@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontakt - Schneiderei DMR</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Schneiderei DMR</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="ueber-mich.html">Über mich</a></li>
+        <li><a href="kreationen.html">Kreationen</a></li>
+        <li><a href="kontakt.html" class="active">Kontakt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="agb.html" class="active">AGB</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Kontaktformular</h2>
+    <form id="kontaktForm" method="post" action="send-mail.php" novalidate>
+      <label for="name">Name:</label><br />
+      <input type="text" id="name" name="name" required /><br />
+      
+      <label for="email">E-Mail:</label><br />
+      <input type="email" id="email" name="email" required /><br />
+      
+      <label for="nachricht">Nachricht:</label><br />
+      <textarea id="nachricht" name="nachricht" rows="5" required></textarea><br />
+      
+      <button type="submit">Absenden</button>
+      <button type="reset">Zurücksetzen</button>
+    </form>
+    <div id="formMessage" aria-live="polite"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Schneiderei DMR - Alle Rechte vorbehalten</p>
+  </footer>
+</body>
+</html>
