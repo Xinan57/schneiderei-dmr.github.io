@@ -7,7 +7,234 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script defer src="script.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Basis-Reset und Fonts */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f6f3;
+    }
+
+    /* Header */
+    header {
+      background: #1a1a1a;
+      color: white;
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding: 0 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-weight: 500;
+    }
+
+    nav a:hover, nav a.active {
+      color: #c9a961;
+    }
+
+    /* Hero Section mit Bild */
+    .hero {
+      margin-top: 100px;
+      position: relative;
+      height: 500px;
+      background: url('Banner1.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      padding: 2rem;
+      max-width: 800px;
+    }
+
+    .hero-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .umzug-hinweis {
+      background: #c9a961;
+      color: #1a1a1a;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      display: inline-block;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    section {
+      background: white;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    section h2 {
+      color: #1a1a1a;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      border-bottom: 3px solid #c9a961;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .leistungen ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .leistungen li {
+      padding: 1rem;
+      background: #f8f6f3;
+      border-left: 4px solid #c9a961;
+      border-radius: 0 5px 5px 0;
+      transition: transform 0.3s;
+    }
+
+    .leistungen li:hover {
+      transform: translateX(5px);
+    }
+
+    .oeffnungszeiten ul {
+      list-style: none;
+      font-size: 1.1rem;
+    }
+
+    .oeffnungszeiten li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .adresse-map p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+
+    .map-container {
+      margin-top: 1rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .social {
+      text-align: center;
+    }
+
+    .social a {
+      color: #1a1a1a;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .social a:hover {
+      color: #c9a961;
+    }
+
+    .social i {
+      font-size: 1.5rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #1a1a1a;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        gap: 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        height: 400px;
+        margin-top: 120px;
+      }
+
+      .hero-content h2 {
+        font-size: 1.8rem;
+      }
+
+      section {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -24,56 +251,62 @@
     </nav>
   </header>
 
-<main>
-    <section class="intro fade-in">
+  <!-- Hero Section mit Banner Bild -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="umzug-hinweis">
+        <i class="fas fa-map-marker-alt"></i> NEU: Grunewaldstraße 56, 10825 Berlin
+      </div>
       <h2>Willkommen bei der Schneiderei DMR</h2>
-      <h3 style="color:red; font-weight:bolt;">Achtung wir sind umgezogen in die Grunewaldstraße 56, 10825 Berlin</h3>
       <p>Seit über 30 Jahren Meisterbetrieb für modebewusste Maßanfertigungen und Änderungen.</p>
-    </section>
+    </div>
+  </section>
 
+  <main>
     <section class="leistungen fade-in delay-1">
       <h2>Unsere Leistungen</h2>
       <ul>
-        <li>Maßanfertigungen für Damen und Herren</li>
-        <li>Kleidungsänderungen aller Art</li>
-        <li>Reparaturen und individuelle Anpassungen</li>
-	<li>Qualität ist unsere Leidenschaft</li>
-	<li>Packetdienst Hermes</li>
+        <li><i class="fas fa-user-tie" style="color: #c9a961; margin-right: 10px;"></i>Maßanfertigungen für Damen und Herren</li>
+        <li><i class="fas fa-cut" style="color: #c9a961; margin-right: 10px;"></i>Kleidungsänderungen aller Art</li>
+        <li><i class="fas fa-tools" style="color: #c9a961; margin-right: 10px;"></i>Reparaturen und individuelle Anpassungen</li>
+        <li><i class="fas fa-award" style="color: #c9a961; margin-right: 10px;"></i>Qualität ist unsere Leidenschaft</li>
+        <li><i class="fas fa-box" style="color: #c9a961; margin-right: 10px;"></i>Paketservice Hermes</li>
       </ul>
     </section>
+
     <section class="oeffnungszeiten">
       <h2>Öffnungszeiten</h2>
       <ul>
-         <li>Montag bis Freitag: 09:00 – 17:00 Uhr</li>
-         <li>Samstag: 10:00 – 13:00 Uhr</li>
+        <li><strong>Montag bis Freitag:</strong> 09:00 – 17:00 Uhr</li>
+        <li><strong>Samstag:</strong> 10:00 – 13:00 Uhr</li>
       </ul>
     </section>
+
     <section class="adresse-map">
       <h2>Unsere Adresse</h2>
-       <p><b>Grunewaldstraße 56, 10825 Berlin</b></p>
+      <p><i class="fas fa-home" style="color: #c9a961; margin-right: 10px;"></i><strong>Grunewaldstraße 56, 10825 Berlin</strong></p>
 
       <h2>Anfahrt</h2>
-     <div class="map-container">
-     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.9127029711654!2d13.3444783!3d52.4923685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851d7d7e207ad%3A0x77e2e1e2e1b8c6c5!2sGrunewaldstra%C3%9Fe%2056%2C%2010825%20Berlin!5e0!3m2!1sde!2sde!4v1659541729878!5m2!1sde!2sde"
-      width="100%" height="300" style="border:0; border-radius:8px;" allowfullscreen=""
-      loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-    </div>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.9127029711654!2d13.3444783!3d52.4923685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851d7d7e207ad%3A0x77e2e1e2e1b8c6c5!2sGrunewaldstra%C3%9Fe%2056%2C%2010825%20Berlin!5e0!3m2!1sde!2sde!4v1659541729878!5m2!1sde!2sde"
+          width="100%" height="300" style="border:0;" allowfullscreen=""
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
     </section>
 
-	 <section class="social">
+    <section class="social">
       <h2>Folgen Sie uns</h2>
-       <a href="https://instagram.com/dein-instagram-name" target="_blank" rel="noopener noreferrer">
-    <i class="fab fa-instagram"></i> Instagram
-  			</a>
-  &nbsp;|&nbsp;
-		  <a href="https://facebook.com/dein-facebook-name" target="_blank" rel="noopener noreferrer">
-    <i class="fab fa-facebook"></i> Facebook
-  	</a>
-	</section>
-<!-- Stelle sicher, dass du FontAwesome im <head> eingebunden hast -->
-
+      <a href="https://instagram.com/dein-instagram-name" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      &nbsp;|&nbsp;
+      <a href="https://facebook.com/dein-facebook-name" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-facebook"></i> Facebook
+      </a>
+    </section>
   </main>
 
   <footer>
